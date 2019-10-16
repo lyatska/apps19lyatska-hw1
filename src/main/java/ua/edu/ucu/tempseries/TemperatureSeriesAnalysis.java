@@ -4,14 +4,16 @@ import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
     private double[] temperatureSeries;
-    private int len;
+    private double len;
+    static final double MIN = -273;
+    final double EPSILON = 0.000001;
 
     public TemperatureSeriesAnalysis() {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
         for (int i = 0; i < len; i++) {
-            if (temperatureSeries[i] < -273) {
+            if (temperatureSeries[i] < MIN) {
                 throw new InputMismatchException();
             }
         }
@@ -78,7 +80,7 @@ public class TemperatureSeriesAnalysis {
                 if (Math.abs(tmp) > Math.abs(temperatureSeries[i])) {
                     tmp = temperatureSeries[i];
                 }
-                else if (Math.abs(tmp) == Math.abs(temperatureSeries[i])) {
+                else if (Math.abs(Math.abs(tmp) - Math.abs(temperatureSeries[i])) < EPSILON) {
                     tmp = Math.abs(temperatureSeries[i]);
                 }
             }
