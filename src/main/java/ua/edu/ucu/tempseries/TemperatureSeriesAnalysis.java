@@ -9,8 +9,9 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
+        final double MIN = -273.0;
         for (int i = 0; i < len; i++) {
-            if (temperatureSeries[i] < -273.0) {
+            if (temperatureSeries[i] < MIN) {
                 throw new InputMismatchException();
             }
         }
@@ -68,6 +69,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToZero() {
+        final double EPSILON = 0.000001;
         if (len == 0) {
             throw new IllegalArgumentException();
         }
@@ -77,7 +79,8 @@ public class TemperatureSeriesAnalysis {
                 if (Math.abs(tmp) > Math.abs(temperatureSeries[i])) {
                     tmp = temperatureSeries[i];
                 }
-                else if (Math.abs(Math.abs(tmp) -Math.abs(temperatureSeries[i])) < 0.000001) {
+                else if (Math.abs(Math.abs(tmp)
+                        - Math.abs(temperatureSeries[i])) < EPSILON) {
                     tmp = Math.abs(temperatureSeries[i]);
                 }
             }
