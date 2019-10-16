@@ -79,8 +79,8 @@ public class TemperatureSeriesAnalysis {
                 if (Math.abs(tmp) > Math.abs(temperatureSeries[i])) {
                     tmp = temperatureSeries[i];
                 }
-                else if (Math.abs(Math.abs(tmp) - Math.abs(temperatureSeries[i]))
-                        < EPSILON) {
+                else if (Math.abs(Math.abs(tmp)
+                        - Math.abs(temperatureSeries[i])) < EPSILON) {
                     tmp = Math.abs(temperatureSeries[i]);
                 }
             }
