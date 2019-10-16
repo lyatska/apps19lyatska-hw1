@@ -60,7 +60,7 @@ public class TemperatureSeriesAnalysis {
 
     public double max() {
         double max = temperatureSeries[0];
-        for (int i =0; i< len; i++) {
+        for (int i = 0; i < len; i++) {
             if (temperatureSeries[i] > max) {
                 max = temperatureSeries[i];
             }
@@ -74,7 +74,7 @@ public class TemperatureSeriesAnalysis {
         }
         else {
             double tmp = temperatureSeries[0];
-            for (int i = 1; i< len; i++) {
+            for (int i = 1; i < len; i++) {
                 if (Math.abs(tmp) > Math.abs(temperatureSeries[i])) {
                     tmp = temperatureSeries[i];
                 }
@@ -92,9 +92,9 @@ public class TemperatureSeriesAnalysis {
         }
         else {
             double tmp = temperatureSeries[0];
-            for (int i = 1; i < len; i++){
-                if (Math.abs(tempValue - tmp) >
-                        Math.abs(tempValue - temperatureSeries[i])) {
+            for (int i = 1; i < len; i++) {
+                if (Math.abs(tempValue - tmp)
+                        > Math.abs(tempValue - temperatureSeries[i])) {
                     tmp = temperatureSeries[i];
                 }
             }
@@ -150,7 +150,8 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException();
         }
         else {
-            TempSummaryStatistics statistics = new TempSummaryStatistics(average(),
+            TempSummaryStatistics statistics
+                    = new TempSummaryStatistics(average(),
                     deviation(), min(), max());
             return statistics;
         }
